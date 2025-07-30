@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import AddValue from "./components/AddCategory";
+import AddValue from "./components/AddCategory/AddCategory";
 import WrehouseProvider from "./components/WrehouseProvider";
 import WrehouseList from "./components/WrehouseList";
 

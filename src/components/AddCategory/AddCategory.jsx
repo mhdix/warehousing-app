@@ -1,7 +1,5 @@
-import React, { Fragment, useState } from "react";
-import FormProvider from "./form/FormProvider";
-import Input from "./form/Input";
-import Textarea from "./form/Textarea";
+import { useState } from "react";
+import AddCategoryForm from "./AddCategoryForm";
 
 const AddValue = () => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
@@ -25,15 +23,7 @@ const AddValue = () => {
             : "relative top-0 duration-300"
         }
       >
-        <FormProvider
-          onSubmit={handleSubmit}
-          toggleHandler={() => setIsOpenCategory(false)}
-        >
-          <div className="flex flex-col gap-6">
-            <Input label="title" id="title" />
-            <Textarea label="description" id="description" className="w-full" />
-          </div>
-        </FormProvider>
+        <AddCategoryForm setIsOpen={setIsOpenCategory} handleSubmit={handleSubmit} />
       </div>
     </div>
   );
