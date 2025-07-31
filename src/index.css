@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "vazir", "sans-serif";
+}
+
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("/public/fonts/Vazirmatn-Regular.ttf") format("ttf");
+}
+@font-face {
+  font-family: "vazir";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/public/fonts/Vazirmatn-Black.ttf") format("ttf");
+}

@@ -3,7 +3,7 @@ import FormProvider from "../form/FormProvider";
 import Textarea from "../form/Textarea";
 import Input from "../form/Input";
 
-const AddValue = () => {
+const AddCategory = () => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [categoryFormData, setCategoryFormData] = useState({
     title: "",
@@ -29,18 +29,22 @@ const AddValue = () => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-4">
+    <div
+      className={`flex flex-col w-full gap-4 duration-300 ${
+        isOpenCategory ? "h-[24rem]" : "h-0"
+      }`}
+    >
       <button
         onClick={() => setIsOpenCategory((is) => !is)}
         className="text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300"
       >
-        {isOpenCategory ? "Close form ?" : "Add New Category ?"}
+        {isOpenCategory ? "Close form ?" : "2. Add New Category ?"}
       </button>
       <div
         className={
           !isOpenCategory
-            ? "-mt-[800px] duration-500"
-            : "relative top-0 duration-300"
+            ? "left-[2800px] duration-500 absolute w-full top-16"
+            : "relative left-0 duration-300"
         }
       >
         {/* <AddCategoryForm
@@ -48,6 +52,7 @@ const AddValue = () => {
           handleSubmit={handleSubmit}
         /> */}
 
+        <h2 className="font-black text-2xl indent-2">Add New Category</h2>
         <FormProvider
           onSubmit={addNewCategoryHandler}
           toggleHandler={() => setIsOpenCategory(false)}
@@ -67,4 +72,4 @@ const AddValue = () => {
   );
 };
 
-export default AddValue;
+export default AddCategory;
