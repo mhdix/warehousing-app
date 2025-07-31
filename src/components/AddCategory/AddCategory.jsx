@@ -1,11 +1,31 @@
-import { useState } from "react";
-import AddCategoryForm from "./AddCategoryForm";
+import { useEffect, useState } from "react";
+import FormProvider from "../form/FormProvider";
+import Textarea from "../form/Textarea";
+import Input from "../form/Input";
 
 const AddValue = () => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
+  const [categoryFormData, setCategoryFormData] = useState({
+    title: "",
+    description: "",
+  });
+  const [categories, setCategories] = useState([]);
 
-  const handleSubmit = (e) => {
+  const addNewCategoryHandler = (e) => {
     e.preventDefault();
+
+    setCategories([
+      ...categories,
+      { ...categoryFormData, createdAt: new Date().toISOString() },
+    ]);
+
+    setCategoryFormData({ title: "", description: "" });
+  };
+  console.log(categoryFormData);
+
+  const changeHandler = (e) => {
+    const { value, name } = e.target;
+    setCategoryFormData({ ...categoryFormData, [name]: value });
   };
 
   return (
@@ -23,7 +43,25 @@ const AddValue = () => {
             : "relative top-0 duration-300"
         }
       >
-        <AddCategoryForm setIsOpen={setIsOpenCategory} handleSubmit={handleSubmit} />
+        {/* <AddCategoryForm
+          setIsOpen={setIsOpenCategory}
+          handleSubmit={handleSubmit}
+        /> */}
+
+        <FormProvider
+          onSubmit={addNewCategoryHandler}
+          toggleHandler={() => setIsOpenCategory(false)}
+        >
+          <div className="flex flex-col gap-6">
+            <Input label="title" id="title" onChange={changeHandler} />
+            <Textarea
+              label="description"
+              id="description"
+              onChange={changeHandler}
+              className="w-full"
+            />
+          </div>
+        </FormProvider>
       </div>
     </div>
   );
