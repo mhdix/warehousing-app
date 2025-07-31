@@ -4,20 +4,23 @@ import Textarea from "../form/Textarea";
 import Input from "../form/Input";
 import toast from "react-hot-toast";
 
-const AddCategory = () => {
+const AddCategory = ({ categories, setCategories }) => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [categoryFormData, setCategoryFormData] = useState({
     title: "",
     description: "",
   });
-  const [categories, setCategories] = useState([]);
 
   const addNewCategoryHandler = (e) => {
     e.preventDefault();
     console.log("add new category");
     setCategories([
       ...categories,
-      { ...categoryFormData, createdAt: new Date().toISOString() },
+      {
+        ...categoryFormData,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+      },
     ]);
     setCategoryFormData({ title: "", description: "" });
     toast.success("add new category");
