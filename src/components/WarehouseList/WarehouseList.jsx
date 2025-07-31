@@ -1,34 +1,46 @@
+import { useState } from "react";
 import { MdDelete, MdOutlineDelete } from "react-icons/md";
 
 const WarehouseList = ({ products, categories }) => {
-  console.log(products.length);
+  const findeCategory = (categoryId) => {
+    console.log("categoryId", categoryId);
+    const cat = categories?.find((c) => c.id === parseInt(categoryId)).title;
+    console.log(cat)
+    return cat
+  };
   return (
     <div className="z-50 relative max-w-[21rem] overflow-x-scroll lg:overflow-x-visible">
       {products.length > 0 && (
-        <table class="w-full lg:min-w-full divide-y divide-white overflow-hidden rounded-xl ">
-          <thead class="bg-slate-800">
+        <table className="w-full lg:min-w-full divide-y divide-white overflow-hidden rounded-xl ">
+          <thead className="bg-slate-800">
             <tr>
               <th
                 scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 title
               </th>
               <th
                 scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 quantity
               </th>
               <th
                 scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 createdAt
               </th>
               <th
                 scope="col"
-                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                category
+              </th>
+              <th
+                scope="col"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 actions
               </th>
@@ -36,20 +48,28 @@ const WarehouseList = ({ products, categories }) => {
           </thead>
 
           {products?.map((pro) => (
-            <tbody class="bg-slate-700 ">
+            <tbody className="bg-slate-700 ">
               <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
                   {pro.title}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
                   {pro.quantity}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
                   {pro.createdAt}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
-                  <button className="bg-red-900 p-2 rounded-full text-white/80 hover:scale-105 duration-300 cursor-pointer">
-                    <MdDelete size={18} /> 
+
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  {findeCategory(pro.categoryId)}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  <button
+                    id={pro.id}
+                    onClick={(e) => handleDelete(e)}
+                    className="bg-red-900 p-2 rounded-full text-white/80 hover:scale-105 duration-300 cursor-pointer"
+                  >
+                    <MdDelete size={18} />
                   </button>
                 </td>
               </tr>

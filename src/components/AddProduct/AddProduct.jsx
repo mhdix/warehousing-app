@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormProvider from "../Form/FormProvider";
 import Input from "../Form/Input";
 import toast from "react-hot-toast";
-import Label from "../form/Label";
+import Label from "../Form/Label";
 
 const AddProduct = ({ categories, setProducts }) => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
@@ -17,7 +17,7 @@ const AddProduct = ({ categories, setProducts }) => {
 
     setProducts((prevState) => [
       ...prevState,
-      { ...productValue, createdAt: new Date().toISOString() },
+      { ...productValue, createdAt: new Date().toISOString(), id: Date.now() },
     ]);
     setProductValue({ title: "", quantity: "", categoryId: "" });
     toast.success("add new product");

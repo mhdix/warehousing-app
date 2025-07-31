@@ -6,6 +6,8 @@ import WarehoueseList from "../components/WarehouseList/WarehouseList";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  console.log("products", products);
+  console.log('categories 2' , categories)
 
   return (
     <div className=" lg:grid lg:grid-cols-3 pl-4 flex flex-col gap-10 lg:gap-0">
