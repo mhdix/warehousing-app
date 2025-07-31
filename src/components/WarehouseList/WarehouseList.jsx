@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { MdDelete, MdOutlineDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const WarehouseList = ({ products, categories }) => {
   const findeCategory = (categoryId) => {
@@ -57,7 +56,7 @@ const WarehouseList = ({ products, categories }) => {
                   {pro.quantity}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
-                  {pro.createdAt}
+                  {new Date(pro.createdAt).toLocaleDateString('fa-IR')}
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">

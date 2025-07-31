@@ -77,7 +77,7 @@ const AddProduct = ({ categories, setProducts }) => {
               </option>
               {categories &&
                 categories?.map((item) => (
-                  <option className="bg-slate-800 rounded-2xl" value={item.id}>
+                  <option key={item.id} className="bg-slate-800 rounded-2xl" value={item.id}>
                     {item.title}
                   </option>
                 ))}
