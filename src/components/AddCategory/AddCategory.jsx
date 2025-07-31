@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FormProvider from "../form/FormProvider";
 import Textarea from "../form/Textarea";
 import Input from "../form/Input";
+import toast from "react-hot-toast";
 
 const AddCategory = () => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
@@ -13,13 +14,13 @@ const AddCategory = () => {
 
   const addNewCategoryHandler = (e) => {
     e.preventDefault();
-
+    console.log("add new category");
     setCategories([
       ...categories,
       { ...categoryFormData, createdAt: new Date().toISOString() },
     ]);
-
     setCategoryFormData({ title: "", description: "" });
+    toast.success("add new category");
   };
   console.log(categoryFormData);
 

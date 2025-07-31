@@ -6,7 +6,7 @@ const Textarea = ({ className, id, label, onChange }) => {
     <div className="flex flex-col gap-2">
       {label && <Label id={id}>description</Label>}
       <textarea
-        name=""
+        name={label}
         id={id}
         placeholder={label}
         onChange={onChange}

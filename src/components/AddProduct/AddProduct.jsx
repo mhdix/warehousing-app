@@ -4,7 +4,7 @@ import Input from "../form/Input";
 import toast from "react-hot-toast";
 
 const AddProduct = () => {
-     const [isOpenCategory, setIsOpenCategory] = useState(false);
+  const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [productValue, setProductValue] = useState({
     name: "",
     details: "",
@@ -14,7 +14,11 @@ const AddProduct = () => {
 
   const hadnleSubmit = (e) => {
     e.preventDefault();
-    setProducts([...products, { ...productValue, createdAt: Date.now() }]);
+
+    setProducts([
+      ...products,
+      { ...productValue, createdAt: new Date().toISOString() },
+    ]);
     setProductValue({ name: "", details: "" });
     toast.success("add new product");
   };
@@ -39,7 +43,10 @@ const AddProduct = () => {
         }
       >
         <h2 className="font-black text-2xl indent-2">Add New Product</h2>
-        <FormProvider onSubmit={hadnleSubmit}>
+        <FormProvider
+          onSubmit={hadnleSubmit}
+          toggleHandler={() => setIsOpenCategory(false)}
+        >
           <Input
             label="name"
             value={productValue.name}
