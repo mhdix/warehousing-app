@@ -1,7 +1,9 @@
+import { MdDelete, MdOutlineDelete } from "react-icons/md";
+
 const WarehouseList = ({ products, categories }) => {
   console.log(products.length);
   return (
-    <div className="z-50 relative max-w-[21rem] overflow-x-scroll lg:overflow-x-visible" >
+    <div className="z-50 relative max-w-[21rem] overflow-x-scroll lg:overflow-x-visible">
       {products.length > 0 && (
         <table class="w-full lg:min-w-full divide-y divide-white overflow-hidden rounded-xl ">
           <thead class="bg-slate-800">
@@ -10,19 +12,25 @@ const WarehouseList = ({ products, categories }) => {
                 scope="col"
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                heading
+                title
               </th>
               <th
                 scope="col"
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                heading
+                quantity
               </th>
               <th
                 scope="col"
                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                heading
+                createdAt
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                actions
               </th>
             </tr>
           </thead>
@@ -30,9 +38,20 @@ const WarehouseList = ({ products, categories }) => {
           {products?.map((pro) => (
             <tbody class="bg-slate-700 ">
               <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">{pro.title}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">{pro.quantity}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">{pro.createdAt}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  {pro.title}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  {pro.quantity}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  {pro.createdAt}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
+                  <button className="bg-red-900 p-2 rounded-full text-white/80 hover:scale-105 duration-300 cursor-pointer">
+                    <MdDelete size={18} /> 
+                  </button>
+                </td>
               </tr>
             </tbody>
           ))}
