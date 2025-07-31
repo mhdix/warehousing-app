@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import FormProvider from "../form/FormProvider";
-import Input from "../form/Input";
+import FormProvider from "../Form/FormProvider";
+import Input from "../Form/Input";
 import toast from "react-hot-toast";
 import Label from "../form/Label";
 
-const AddProduct = ({ categories }) => {
+const AddProduct = ({ categories, setProducts }) => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [productValue, setProductValue] = useState({
     title: "",
     quantity: "",
     categoryId: "",
   });
-  console.log("categories", categories);
-  const [products, setProducts] = useState([]);
 
   const addNewProduct = (e) => {
     e.preventDefault();
@@ -70,7 +68,11 @@ const AddProduct = ({ categories }) => {
               id="categoryId"
               className="border border-gray-600 rounded-md p-2 w-full text-slate-400"
             >
-              <option className="bg-slate-800 rounded-2xl text-slate-700" value='' disabled>
+              <option
+                className="bg-slate-800 rounded-2xl text-slate-700"
+                value=""
+                disabled
+              >
                 select a category
               </option>
               {categories &&

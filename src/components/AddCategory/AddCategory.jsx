@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import FormProvider from "../form/FormProvider";
-import Textarea from "../form/Textarea";
-import Input from "../form/Input";
+import FormProvider from "../Form/FormProvider";
+import Textarea from "../Form/Textarea";
+import Input from "../Form/Input";
 import toast from "react-hot-toast";
 
 const AddCategory = ({ categories, setCategories }) => {
@@ -25,7 +25,6 @@ const AddCategory = ({ categories, setCategories }) => {
     setCategoryFormData({ title: "", description: "" });
     toast.success("add new category");
   };
-  console.log(categoryFormData);
 
   const changeHandler = (e) => {
     const { value, name } = e.target;
@@ -34,20 +33,20 @@ const AddCategory = ({ categories, setCategories }) => {
 
   return (
     <div
-      className={`flex flex-col w-full gap-4 duration-300 ${
+      className={`flex flex-col w-full duration-300 z-0 ${
         isOpenCategory ? "h-[24rem]" : "h-0"
       }`}
     >
       <button
         onClick={() => setIsOpenCategory((is) => !is)}
-        className="text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300"
+        className={`text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300 ${isOpenCategory ? "" : "mt-4"}` }
       >
         {isOpenCategory ? "Close form ?" : "2. Add New Category ?"}
       </button>
       <div
         className={
           !isOpenCategory
-            ? "left-[2800px] duration-500 absolute w-full top-16"
+            ? "left-[2800px] duration-500 absolute w-full mt-40"
             : "relative left-0 duration-300"
         }
       >

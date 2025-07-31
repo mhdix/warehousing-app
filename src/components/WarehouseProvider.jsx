@@ -7,7 +7,7 @@ const WrehouseProvider = () => {
   return (
     <div className="min-h-screen bg-slate-900 relative text-white ">
       <Navbar />
-      <div className="max-w-xl mx-auto py-4 my-8 relative">
+      <div className="max-w-6xl mx-auto py-4 my-8 relative">
         <Outlet />
       </div>
       {/* <Footer /> */}
