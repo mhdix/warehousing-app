@@ -7,7 +7,7 @@ import WarehoueseList from "./components/WarehouseList/WarehouseList";
 
 function App() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden min-h-screen bg-red-500">
       <Routes>
         <Route path="/" element={<WrehouseProvider />}>
           <Route index element={<Home />} />

@@ -28,7 +28,7 @@ const AddProduct = ({ categories, setProducts }) => {
     console.log(productValue);
   };
   return (
-    <div className="flex flex-col w-full gap-4 relative ">
+    <div className="flex flex-col w-full relative ">
       <button
         onClick={() => setIsOpenCategory((is) => !is)}
         className="text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300"

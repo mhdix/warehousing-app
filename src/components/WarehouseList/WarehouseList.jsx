@@ -1,11 +1,17 @@
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdSentimentSatisfied } from "react-icons/md";
 
-const WarehouseList = ({ products, categories }) => {
+const WarehouseList = ({ products, categories, setProducts }) => {
   const findeCategory = (categoryId) => {
     console.log("categoryId", categoryId);
     const cat = categories?.find((c) => c.id === parseInt(categoryId)).title;
-    console.log(cat)
-    return cat
+    console.log(cat);
+    return cat;
+  };
+  const handleDelete = (productId) => {
+    const filteredProducts = products.filter(
+      (product) => product.id !== parseInt(productId)
+    );
+    setProducts(filteredProducts);
   };
   return (
     <div className="z-50 relative max-w-[21rem] overflow-x-scroll lg:overflow-x-visible">
@@ -56,7 +62,7 @@ const WarehouseList = ({ products, categories }) => {
                   {pro.quantity}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
-                  {new Date(pro.createdAt).toLocaleDateString('fa-IR')}
+                  {new Date(pro.createdAt).toLocaleDateString("fa-IR")}
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
@@ -65,7 +71,7 @@ const WarehouseList = ({ products, categories }) => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-200">
                   <button
                     id={pro.id}
-                    onClick={(e) => handleDelete(e)}
+                    onClick={() => handleDelete(pro.id)}
                     className="bg-red-900 p-2 rounded-full text-white/80 hover:scale-105 duration-300 cursor-pointer"
                   >
                     <MdDelete size={18} />
