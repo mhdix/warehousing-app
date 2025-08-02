@@ -8,16 +8,18 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  console.log("categories", categories);
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
+
+  const [selectedCategory, setSelectedCategory] = useState();
 
   useEffect(() => {
     let result = products;
     result = filterSearchTitle(result);
+    result = filterSelectedCategory(result)
     result = sortDate(result);
     setFilteredProducts(result);
-  }, [products, sort, search]);
+  }, [products, sort, search, selectedCategory  ]);
 
   const sortHandler = (e) => {
     setSort(e.target.value);
@@ -25,12 +27,18 @@ const Home = () => {
   const searchHandler = (e) => {
     setSearch(e.target.value.trim().toLowerCase());
   };
-
+  const selectCategoryHandler = (e) => {
+    setSelectedCategory(e.target.value);
+  };
   const filterSearchTitle = (array) => {
     return array.filter((product) =>
       product.title.toLowerCase().includes(search)
     );
   };
+  const filterSelectedCategory = (array) => {
+    if (!selectedCategory) return array
+    return array.filter((item) => item.categoryId == selectedCategory)
+  } 
 
   const sortDate = (array) => {
     let sortedProducts = [...array];
@@ -52,6 +60,8 @@ const Home = () => {
           search={search}
           onSort={sortHandler}
           onSearch={searchHandler}
+          selectedCategory={selectedCategory}
+          onSelectCategory={selectCategoryHandler}
         />
       </div>
       <div className="lg:col-span-6 space-y-4 z-0 px-4 relative">

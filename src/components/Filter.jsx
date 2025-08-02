@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import Input from "./Form/Input";
 import Label from "./Form/Label";
 
-const Filter = ({ onSort, onSearch, sort, search, categories }) => {
+const Filter = ({
+  onSort,
+  onSearch,
+  sort,
+  search,
+  categories,
+  selectedCategory,
+  onSelectCategory,
+}) => {
   const [sortCategory, setSortCategory] = useState("");
 
   const sortCategoryHandler = (e) => {
@@ -22,7 +30,7 @@ const Filter = ({ onSort, onSearch, sort, search, categories }) => {
           name="sortDate"
           value={sort}
           onChange={onSort}
-          className={`border border-gray-600 rounded-md p-2 w-full`}
+          className={`border border-gray-600 rounded-md p-2 w-full `}
         >
           <option value="" disabled>
             sort by ...
@@ -39,19 +47,22 @@ const Filter = ({ onSort, onSearch, sort, search, categories }) => {
         <Label>category</Label>
         <select
           name="sortCategory"
-          value={sortCategory}
-          onChange={sortCategoryHandler}
+          value={selectedCategory}
+          onChange={onSelectCategory}
           className={`border border-gray-600 rounded-md p-2 w-full`}
         >
-          <option value="" disabled>
-            select category
+          <option value="" className="bg-slate-900">
+            all
           </option>
-          {categories &&
-            categories?.map((category) => (
-              <option className="bg-slate-900" value={`${category.title}`}>
-                {category.title}
-              </option>
-            ))}
+          {categories?.map((category) => (
+            <option
+              className="bg-slate-900"
+              value={category.title}
+              key={category.id}
+            >
+              {category.title}
+            </option>
+          ))}
         </select>
       </div>
     </div>
