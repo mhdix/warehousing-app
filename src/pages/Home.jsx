@@ -62,7 +62,7 @@ const Home = () => {
           <AddProduct categories={categories} setProducts={setProducts} />
         </div>
       </div>
-      <div className="col-span-1 lg:col-span-6 w-full overflow-hidden space-y-4 z-20 px-4 backdrop-filter backdrop-blur-lg lg:pt-0 relative ">
+      <div className="col-span-1 lg:col-span-6 w-full overflow-hidden space-y-4 z-20 px-4 lg:pt-0 relative ">
         <p className="font-bold mb-11">Warehouse List</p>
         <div className="w-full">
           <WarehoueseList
