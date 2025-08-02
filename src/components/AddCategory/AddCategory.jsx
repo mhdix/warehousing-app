@@ -38,16 +38,18 @@ const AddCategory = ({ categories, setCategories }) => {
     >
       <button
         onClick={() => setIsOpenCategory((is) => !is)}
-        className={`text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300 ${isOpenCategory ? "" : "mt-4"}` }
+        className={`text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300 ${
+          isOpenCategory ? "" : "mt-4"
+        }`}
       >
-        {isOpenCategory ? "Close form ?" : "1. Add New Category ?"}
+        {isOpenCategory ? null : "1. Add New Category ?"}
       </button>
       <div
-        className={
+        className={`${
           !isOpenCategory
             ? "left-[2800px] duration-500 absolute w-full mt-40"
             : "relative left-0 duration-300"
-        }
+        }`}
       >
         {/* <AddCategoryForm
           setIsOpen={setIsOpenCategory}

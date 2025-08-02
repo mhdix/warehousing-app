@@ -4,9 +4,11 @@ import Label from "./Form/Label";
 
 const Filter = ({ onSort, onSearch, sort, search }) => {
   return (
-    <div className="lg:grid lg:grid-cols-2 gap-20 w-full px-4">
-      <Input className="w-full" label="search" onChange={onSearch} />
-      <div className="flex flex-col">
+    <div className="lg:grid lg:grid-cols-12 w-full px-4">
+      <div className="col-span-4 ">
+        <Input className="w-full" label="search" onChange={onSearch} />
+      </div>
+      <div className="flex flex-col col-span-4 col-start-7">
         <Label>sort</Label>
         <select
           name=""

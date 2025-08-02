@@ -4,14 +4,15 @@ import WrehouseProvider from "./components/WarehouseProvider";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Home from "./pages/Home";
 import WarehoueseList from "./components/WarehouseList/WarehouseList";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
 
 function App() {
   return (
-    <div className="overflow-hidden min-h-screen bg-red-500">
+    <div className="overflow-hidden min-h-screen bg-slate-900">
       <Routes>
         <Route path="/" element={<WrehouseProvider />}>
           <Route index element={<Home />} />
-          <Route path="/one" element={<AddProduct />} />
+          <Route path="/list" element={<WarehouseList />} />
           <Route path="/wrehouse-list" element={<WarehoueseList />} />
         </Route>
       </Routes>

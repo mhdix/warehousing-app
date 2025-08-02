@@ -55,15 +55,15 @@ const Home = () => {
           onSearch={searchHandler}
         />
       </div>
-      <div className="lg:col-span-6 space-y-4 z-0 px-4">
+      <div className="lg:col-span-6 space-y-4 z-0 px-4 relative">
         <p className="font-bold">Add Warehouse</p>
-        <div className="flex flex-col lg:w-3/5 w-full lg:gap-10 gap-20">
+        <div className="flex flex-col lg: w-full lg:gap-10 gap-20">
           <AddCategory categories={categories} setCategories={setCategories} />
           <AddProduct categories={categories} setProducts={setProducts} />
         </div>
       </div>
-      <div className="col-span-1 lg:col-span-6 w-full overflow-hidden space-y-4 z-50 px-4 backdrop-filter backdrop-blur-lg lg:pt-0 relative">
-        <p className="font-bold">Warehouse List</p>
+      <div className="col-span-1 lg:col-span-6 w-full overflow-hidden space-y-4 z-20 px-4 backdrop-filter backdrop-blur-lg lg:pt-0 relative ">
+        <p className="font-bold mb-11">Warehouse List</p>
         <div className="w-full">
           <WarehoueseList
             products={filteredProducts}

@@ -14,8 +14,8 @@ const WarehouseList = ({ products, categories, setProducts }) => {
     setProducts(filteredProducts);
   };
   return (
-    <div className="z-50 relative overflow-x-scroll lg:overflow-x-visible overflow-hidden w-full">
-      {products.length > 0 && (
+    <div className="   relative overflow-x-scroll lg:overflow-x-visible overflow-hidden w-full">
+      {products?.length > 0 && (
         <table className="w-full lg:min-w-full divide-y divide-white overflow-hidden rounded-xl ">
           <thead className="bg-slate-800">
             <tr>

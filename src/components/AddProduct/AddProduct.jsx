@@ -33,7 +33,7 @@ const AddProduct = ({ categories, setProducts }) => {
         onClick={() => setIsOpenCategory((is) => !is)}
         className="text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300"
       >
-        {isOpenCategory ? "Close form ?" : "2. Add New Product ?"}
+        {isOpenCategory ? null : "2. Add New Product ?"}
       </button>
       <div
         className={
