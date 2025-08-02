@@ -8,17 +8,15 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
-  const [sort, setSort] = useState("latest");
+  console.log("categories", categories);
+  const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    
     let result = products;
     result = filterSearchTitle(result);
     result = sortDate(result);
     setFilteredProducts(result);
-    
   }, [products, sort, search]);
 
   const sortHandler = (e) => {
@@ -49,6 +47,7 @@ const Home = () => {
     <div className="lg:grid lg:grid-cols-12  flex flex-col gap-10 lg:gap-0">
       <div className="lg:col-span-full lg:place-items-center lg:mb-20">
         <Filter
+          categories={categories}
           sort={sort}
           search={search}
           onSort={sortHandler}
