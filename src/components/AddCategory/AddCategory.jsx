@@ -13,7 +13,6 @@ const AddCategory = ({ categories, setCategories }) => {
 
   const addNewCategoryHandler = (e) => {
     e.preventDefault();
-    console.log("add new category");
     setCategories([
       ...categories,
       {
@@ -41,7 +40,7 @@ const AddCategory = ({ categories, setCategories }) => {
         onClick={() => setIsOpenCategory((is) => !is)}
         className={`text-gray-600 text-start text-md cursor-pointer hover:text-gray-400 duration-300 ${isOpenCategory ? "" : "mt-4"}` }
       >
-        {isOpenCategory ? "Close form ?" : "2. Add New Category ?"}
+        {isOpenCategory ? "Close form ?" : "1. Add New Category ?"}
       </button>
       <div
         className={
